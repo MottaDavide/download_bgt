@@ -1,4 +1,4 @@
-.env_mac/
+.venv_mac/
 *.pyc
 __pycache__/
 .vscode/
