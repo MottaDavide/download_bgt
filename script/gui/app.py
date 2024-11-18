@@ -52,9 +52,11 @@ class App(customtkinter.CTk):
         
 
     def _handle_download(self):
-        for release in self.releases:
+        self.clear_log()
+        releases = self.checkbox_frame.get()
+        for release in releases:
             year = release[-4:]
-            save_path = Path(__file__).parents[2] / year / release
+            save_path = Path(__file__).parents[3] / year / release
         
             self.log_message(f"Starting download for release: {release}")
             
@@ -74,7 +76,7 @@ class App(customtkinter.CTk):
         releases = self.checkbox_frame.get()
         for release in releases:
             year = release[-4:]
-            save_path = Path(__file__).parents[2] / year / release
+            save_path = Path(__file__).parents[3] / year / release
             
             self.log_message(f"Starting labelling process for release: {release}")
             

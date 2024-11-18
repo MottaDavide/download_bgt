@@ -15,7 +15,7 @@ class MyCheckboxFrame(customtkinter.CTkFrame):
             checkbox.grid(row=i + 1, column=0, padx=10, pady=(15, 0), sticky="ew")
             self.checkboxes.append(checkbox)
 
-    def get_selected(self) -> List[str]:
+    def get(self) -> List[str]:
         return [
             checkbox.cget("text") for checkbox in self.checkboxes if checkbox.get() == 1
         ]
