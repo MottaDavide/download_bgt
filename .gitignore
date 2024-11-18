@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 backup/
 image.png
+build/
+dist/
+download_budget.spec
