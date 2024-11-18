@@ -40,7 +40,7 @@ class App(customtkinter.CTk):
         self.sharepoint_path = sharepoint_path
 
         self.title("Download Budget From SharePoint")
-        self.geometry("600x550")
+        self.geometry("600x650")
         self._configure_layout()
 
         self.checkbox_frame = MyCheckboxFrame(self, values=self.releases, title="Release")
