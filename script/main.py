@@ -10,7 +10,7 @@ from gui.app import App
 
 if __name__ == "__main__":
     # Load config
-    config = ConfigLoader(config_path=Path(__file__).parents[1] / "config.yaml")
+    config = ConfigLoader(config_path=Path(__file__).parents[0] / "config.yaml")
     
     # Resolve SharePoint path
     resolver = SharePointPathResolver()
