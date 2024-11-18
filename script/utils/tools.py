@@ -6,6 +6,17 @@ import math
 from typing import Callable, Optional
 from datetime import datetime
 
+import sys
+import os
+
+def get_resource_path(relative_path):
+    """Ottieni il percorso assoluto del file, tenendo conto dell'esecuzione tramite PyInstaller."""
+    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
+# Esempio: percorso per config.yaml
+config_path = get_resource_path("config.yaml")
+
 def choose_release(available_release: list) -> str:
     print("Available releases:")
     for release in sorted(available_release, reverse=True):
