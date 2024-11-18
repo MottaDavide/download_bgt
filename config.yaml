@@ -1,0 +1,4 @@
+pattern file: '^(?!.*UPLOADED)((?=.*SKU)|(?=.*YELLOW))(.*XLSX)'
+pattern release: '^[A-Za-z0-9]{2} \d{4}$'
+regions: ('BRA', 'FIL','JPN','LATAM','USA')
+budget_folder: 'BUDGET DEFINITION'
