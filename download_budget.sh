@@ -8,7 +8,7 @@
 cd "/Volumes/Share/Gruppo_Demand_Planning/02_NPI/BUDGET_INSERTION/EXCEL_TXT_INSERIMENTI/download_bgt"
 
 # Activate the virtual environment
-source .venv/bin/activate
+source .venv_mac/bin/activate
 
 # Run the Python script
-python script/gui.py
+python script/mainy.py
