@@ -6,7 +6,6 @@ This project provides a graphical user interface (GUI) for managing the process 
 2. Put a tag on the very same file in the SharePoint to prevent future downloads.
 
 ![alt text](icon/sample.png)
-
 ## Features
 
 - **Release Selection**: Select specific releases from a list of available options.
