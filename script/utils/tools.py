@@ -14,8 +14,6 @@ def get_resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
     return os.path.join(base_path, relative_path)
 
-# Esempio: percorso per config.yaml
-config_path = get_resource_path("config.yaml")
 
 def choose_release(available_release: list) -> str:
     print("Available releases:")
