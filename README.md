@@ -5,7 +5,7 @@ This project provides a graphical user interface (GUI) for managing the process 
 1. Download files from SharePoint
 2. Put a tag on the very same file in the SharePoint to prevent future downloads.
 
-![alt text](image.png)
+![alt text](icon/sample.png)
 
 ## Features
 
