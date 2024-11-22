@@ -1,4 +1,4 @@
-.venv_mac/
+.venv/
 *.pyc
 __pycache__/
 .vscode/
@@ -8,3 +8,4 @@ image.png
 build/
 dist/
 download_budget.spec
+.conda/
