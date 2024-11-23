@@ -6,10 +6,11 @@ authors = ["Davide Motta <davide.motta@luxottica.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.14"
 pandas = "^2.2.3"
 PyYAML = "^6.0.2"
 customtkinter = "^5.2.2"
+pyinstaller = "^6.11.1"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"

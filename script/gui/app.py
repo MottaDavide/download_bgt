@@ -2,6 +2,7 @@
 # Standard Libs
 from pathlib import Path
 import customtkinter
+import sys
 
 # Local Imports
 from gui.components import MyCheckboxFrame
@@ -130,7 +131,10 @@ class App(customtkinter.CTk):
             Path: The computed save path based on the release name.
         """
         year = release[-4:]  # Extract the year from the release name
-        return Path(__file__).parents[3] / year / release
+        if getattr(sys, 'frozen', False):
+            return Path(__file__).parents[6] / year / release
+        else:
+            return Path(__file__).parents[3] / year / release
     
     def _process_releases(self, process_func, process_name: str):
         """

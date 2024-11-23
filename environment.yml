@@ -1,0 +1,14 @@
+name: .condaw
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11  # Replace with your Python version if needed
+  - pyinstaller
+  - pyyaml  
+  - pandas
+  - pip  # Ensure pip is available
+  - pip:
+      - customtkinter  # Install via pip since it's not available in Conda
+  - ipykernel
+  - openpyxl

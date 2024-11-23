@@ -16,6 +16,7 @@ This project provides a graphical user interface (GUI) for managing the process 
 
 ## Usage
 
+0. Activate the `conda` environment via `conda activate \\luxapplp04\Share\Gruppo_Demand_Planning\02_NPI\BUDGET_INSERTION\EXCEL_TXT_INSERIMENTI\download_bgt\.condaw`
 1. Execute the main script to start the GUI: `script/main.py`
 2. Choose the release you want to process from the list of checkboxes
 3. Click **Download** to fetch and convert files
@@ -35,6 +36,30 @@ budget_folder: 'BUDGET DEFINITION'
 - `pattern release`: regex pattern used to keep only the correct release format
 - `regions`: list of regions/areas/type launches from where and to where process the files
 - `budget_folder`: name for the SharePoint folder where the files are stored
+
+## Create .exe file
+
+0. Create the virtual environment if needed
+```
+conda env create --prefix .condaw -f environment.yml
+```
+1. Activate the virtual environment via 
+```
+conda activate \\luxapplp04\Share\Gruppo_Demand_Planning\02_NPI\BUDGET_INSERTION\EXCEL_TXT_INSERIMENTI\download_bgt\.condaw
+```
+
+
+2. Run `pyinstaller`
+
+On **MacOS**
+```
+pyinstaller --noconsole --onedir --add-data "script/config.yaml:." --add-data "script/core:core" --add-data "script/gui:gui" --add-data "script/utils:utils" --hidden-import openpyxl.cell._writer --name "download_bgt_from_sharepoint" --workpath macos/build --distpath macos/dist script/main.py
+```
+
+On **Windows**
+```
+ pyinstaller --noconsole --onedir --add-data "script\config.yaml;." --add-data "script\core;core" --add-data "script\gui;gui" --add-data "script\utils;utils" --hidden-import openpyxl.cell._writer --name "download_bgt_from_sharepoint" --workpath windows\build --distpath windows\dist script\main.py 
+```
 
 ## Project Structure
 
