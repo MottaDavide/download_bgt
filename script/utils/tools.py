@@ -103,8 +103,11 @@ def convert_file(file_path: str | Path, save_path: str | Path, log_func: Optiona
         
         # Output total budget for verification
         total_budget = int(df["QTY"].sum())
-        log(f" Total Budget for the file: {total_budget}")
-        log('-------------------------------')
+        if total_budget > 50000:
+            log(f"\tWARNING: Total Budget for the file: {total_budget}. The total is pretty high, check the file manually.")
+        else:
+            log(f"\tTotal Budget for the file: {total_budget}")
+        log('\t----------\n')
 
         # Define the save path and ensure directories exist
         save_path = Path(save_path)
@@ -172,7 +175,7 @@ def find_and_convert_files(release: str,
                 if folder_name_cleaned == release_cleaned:
                     for file in sub_dir.rglob("*"):
                         if pattern.match(file.name.upper()):
-                            log(f" File found: {file.name}")
+                            log(f"\tFile found: {file.name}")
                             
                             df = convert_file(file_path=file,
                                         save_path=save_path/region,
