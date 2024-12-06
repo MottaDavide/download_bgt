@@ -10,6 +10,8 @@ import openpyxl
 import sys
 import os
 
+
+
 def get_resource_path(relative_path):
     """Ottieni il percorso assoluto del file, tenendo conto dell'esecuzione tramite PyInstaller."""
     base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
@@ -120,8 +122,8 @@ def convert_file(file_path: str | Path, save_path: str | Path, log_func: Optiona
         return df
 
     except Exception as e:
-        log(f"Error processing file '{file_path}': {e}")
-        log(f"Please, check the file manually")
+        log(f"\tError processing file '{file_path}': {e}")
+        log(f"\tPlease, check the file manually\n")
         
         return file_path   
     

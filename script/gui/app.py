@@ -103,15 +103,28 @@ class App(customtkinter.CTk):
         )
         self.tag_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="ew")       
 
-    def log_message(self, message: str):
+    def log_message(self, message: str, color: str = 'black'):
         """
-        Append a log message to the log text box.
+        Append a log message to the log text box and apply a specific color to it.
 
         Args:
             message (str): The message to be logged.
+            color (str): The color of the message. Default is 'black'.
         """
+        # Insert the new message
         self.log_textbox.insert("end", f"{message}\n")
-        self.log_textbox.see("end")  # Scroll to the end
+        
+        # Calculate the indices of the inserted message
+        start_index = self.log_textbox.index("end-1c linestart")  # Start of the newly inserted line
+        end_index = self.log_textbox.index("end-1c")  # End of the newly inserted message
+        print(start_index, end_index)
+        # Create a unique tag for this message
+        tag_name = f"color_{self.log_textbox.index('end-1c').replace('.', '_')}"
+        self.log_textbox.tag_add(tag_name, start_index, end_index)
+        self.log_textbox.tag_config(tag_name, foreground=color)
+        
+        # Ensure the log scrolls to the latest entry
+        self.log_textbox.see("end")
 
     def clear_log(self):
         """
@@ -154,9 +167,9 @@ class App(customtkinter.CTk):
         releases = self.checkbox_frame.get()
         for release in releases:
             save_path = self._get_save_path(release)
-            self.log_message(f"Starting {process_name} process for release: {release}")
+            self.log_message(f"Starting {process_name} process for release: {release}", color='blue')
             process_func(release, save_path)
-        self.log_message(f"{process_name.capitalize()} process completed.\n\n")
+        self.log_message(f"{process_name.capitalize()} process completed.\n\n", color='blue')
         
 
     def _handle_download(self):

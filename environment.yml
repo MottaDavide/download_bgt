@@ -12,3 +12,4 @@ dependencies:
       - customtkinter  # Install via pip since it's not available in Conda
   - ipykernel
   - openpyxl
+  - termcolor
