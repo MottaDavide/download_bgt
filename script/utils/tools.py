@@ -228,8 +228,9 @@ def put_tag(release: str,
         if region in regions:
             log(f"\nProcessing region: {region}")
             files = [f for f in root_dir.iterdir() if f.is_file()]
-            newest_time = max(f.stat().st_mtime for f in files)
-            newest_files = [f.name for f in files if f.stat().st_mtime == newest_time]
+            newest_date = max(datetime.fromtimestamp(f.stat().st_mtime).date() for f in files)
+            newest_files = [f.name for f in files 
+                if datetime.fromtimestamp(f.stat().st_mtime).date() == newest_date]
 
             for file in Path(sharepoint_path / region / budget_definition_folder / release).rglob("*"):
                 if file.name in newest_files:
